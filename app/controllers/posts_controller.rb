@@ -23,18 +23,18 @@ class PostsController < ApplicationController
 
   def update
     @post.update!(post_params)
-    redirect_to post, notice: "更新しました"
+    redirect_to @post, notice: "更新しました"
   end
 
   def destroy
-    post.destroy!
+    @post.destroy!
     redirect_to root_path, alert: "削除しました"
   end
 
   private
 
   def set_post
-    @post = Post.find(post_params[:id])
+    @post = Post.find(params[:id])
   end
 
 
